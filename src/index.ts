@@ -14,6 +14,11 @@ class HealthTracker {
         this.bot.on('ready', () => {
             console.log('Connected');
             console.log(`Logged in as: ${bot.user?.username} (${bot.user?.id})`);
+
+            this.bot.user!.setActivity({
+                name: '!health',
+                type: 'LISTENING',
+            });
         });
         this.bot.on('message', (message) => {
             if (message.author.bot) return;
