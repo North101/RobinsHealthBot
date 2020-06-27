@@ -1,0 +1,19 @@
+{
+  "name": "robins_health_tracker",
+  "version": "0.1.0",
+  "description": "Health tracking for Robins Hobby Cafe",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node ."
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@types/node": "^14.0.14",
+    "discord.js": "^12.2.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}
