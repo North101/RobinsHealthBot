@@ -1,4 +1,5 @@
 import * as Discord from 'discord.js';
+import dotenv from 'dotenv';
 
 class HealthTracker {
     static minPlayers = 2;
@@ -166,7 +167,7 @@ class HealthTracker {
             this.sendNotEnoughArguments(message);
             return;
         }
-    
+
         const players = new Set<string>();
         const healthArg = args.pop()!;
         for (const playerArg of args.values()) {
@@ -224,7 +225,7 @@ class HealthTracker {
             `${this.command} inc @player me all others <health>`,
             `${this.command} dec @player me all others <health>`,
             `${this.command} health`,
-            `${this.command} help`, 
+            `${this.command} help`,
         ].join('\n'));
     }
 
@@ -290,6 +291,7 @@ class HealthTracker {
     }
 }
 
+dotenv.config();
 const token = process.env.DISCORD_BOT_TOKEN;
 if (token === undefined) throw Error('DISCORD_BOT_TOKEN not set!');
 
