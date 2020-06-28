@@ -9,13 +9,13 @@ class HealthTracker {
     avatar: string | null = null;
     activeChannels: Map<string, Map<string, number>>;
 
-    constructor(bot: Discord.Client) {
-        this.bot = bot;
+    constructor(token: string) {
+        this.bot = new Discord.Client();
         this.activeChannels = new Map();
 
         this.bot.on('ready', () => {
             console.log('Connected');
-            console.log(`Logged in as: ${bot.user?.username} (${bot.user?.id})`);
+            console.log(`Logged in as: ${this.bot.user?.username} (${this.bot.user?.id})`);
 
             this.bot.user!.setActivity({
                 name: this.command,
@@ -42,7 +42,7 @@ class HealthTracker {
                 }
             }
         });
-        this.bot.login(process.env.DISCORD_BOT_TOKEN);
+        this.bot.login(token);
     }
 
     isUserMention = (mention: string) => {
@@ -290,5 +290,7 @@ class HealthTracker {
     }
 }
 
-// Initialize Discord Bot
-const healthTracker = new HealthTracker(new Discord.Client());
+const token = process.env.DISCORD_BOT_TOKEN;
+if (token === undefined) throw Error('DISCORD_BOT_TOKEN not set!');
+
+const healthTracker = new HealthTracker(token);
