@@ -5,6 +5,8 @@ class HealthTracker {
     static maxPlayers = 5;
 
     bot: Discord.Client;
+    command: string = '!health';
+    avatar: string | null = null;
     activeChannels: Map<string, Map<string, number>>;
 
     constructor(bot: Discord.Client) {
@@ -16,16 +18,19 @@ class HealthTracker {
             console.log(`Logged in as: ${bot.user?.username} (${bot.user?.id})`);
 
             this.bot.user!.setActivity({
-                name: '!health',
+                name: this.command,
                 type: 'LISTENING',
             });
+            if (this.bot.user!.avatarURL() !== this.avatar) {
+                this.bot.user!.setAvatar(this.avatar ?? '');
+            }
         });
         this.bot.on('message', (message) => {
             if (message.author.bot) return;
 
             const args = message.content.split(/\s+/);
             switch (args[0]) {
-                case '!health':
+                case this.command:
                 case `<@${this.bot.user?.id}>`:
                 case `<@!${this.bot.user?.id}>`: {
                     console.log(args[0]);
@@ -210,12 +215,12 @@ class HealthTracker {
     handleHelp = (message: Discord.Message, args: string[]) => {
         message.channel.send([
             'Commands:',
-            '!health start @player1 @player2 <health>',
-            '!health stop',
-            '!health inc @player me all others <health>',
-            '!health dec @player me all others <health>',
-            '!health health',
-            '!health help', 
+            `${this.command} start @player1 @player2 <health>`,
+            `${this.command} stop`,
+            `${this.command} inc @player me all others <health>`,
+            `${this.command} dec @player me all others <health>`,
+            `${this.command} health`,
+            `${this.command} help`, 
         ].join('\n'));
     }
 
