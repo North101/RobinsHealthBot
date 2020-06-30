@@ -1,6 +1,6 @@
 import * as Discord from 'discord.js';
 
-export default class HealthTracker {
+export default class RobinsHealthBot {
     command: string;
     avatar: string | null;
     minPlayers = 2;

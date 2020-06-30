@@ -1,7 +1,7 @@
 {
-  "name": "robins_health_tracker",
+  "name": "robins_health_bot",
   "version": "0.1.0",
-  "description": "Health tracking for Robins Hobby Cafe",
+  "description": "Health tracking discord bot for Robins Hobby Cafe",
   "main": "src/index.ts",
   "private": true,
   "scripts": {
