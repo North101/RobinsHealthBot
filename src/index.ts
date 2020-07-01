@@ -2,7 +2,6 @@ import * as Discord from 'discord.js';
 
 export default class RobinsHealthBot {
     command: string;
-    avatar: string | null;
     minPlayers = 2;
     maxPlayers = 5;
 
@@ -17,7 +16,6 @@ export default class RobinsHealthBot {
         maxPlayers = 5,
     ) {
         this.command = command;
-        this.avatar = avatar;
         this.minPlayers = minPlayers;
         this.maxPlayers = maxPlayers;
 
@@ -32,9 +30,6 @@ export default class RobinsHealthBot {
                 name: this.command,
                 type: 'LISTENING',
             });
-            if (this.bot.user!.avatarURL() !== this.avatar) {
-                this.bot.user!.setAvatar(this.avatar ?? '');
-            }
         });
         this.bot.on('message', (message) => {
             if (message.author.bot) return;
