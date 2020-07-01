@@ -2,7 +2,10 @@
   "name": "robins_health_bot",
   "version": "0.1.0",
   "description": "Health tracking discord bot for Robins Hobby Cafe",
-  "private": true,
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/North101/RobinsHealthBot.git"
+  },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
