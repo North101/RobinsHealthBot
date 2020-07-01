@@ -1,10 +1,10 @@
 {
   "name": "robins_health_bot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Health tracking discord bot for Robins Hobby Cafe",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/North101/RobinsHealthBot.git"
+    "type": "git",
+    "url": "https://github.com/North101/RobinsHealthBot.git"
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -16,16 +16,14 @@
     "prepare": "yarn run build",
     "build": "tsc"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "@types/node": "^14.0.14",
     "@types/ws": "^7.2.6",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.5",
-
     "discord.js": "^12.2.0",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
   },
   "engines": {
     "node": "14.x"
